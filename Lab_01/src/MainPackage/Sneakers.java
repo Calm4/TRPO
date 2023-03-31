@@ -1,12 +1,20 @@
 package MainPackage;
 
-
 public class Sneakers {
-	private String name;
-	private Float cost;
-	private String type;
-	private Producer producer;
+	private String name; // ИМЯ
+	private Float cost; // СТОИМОСТЬ
+	private String type; // ТИП ОБУВИ
+	private Producer producer; // ПОСТАВЩИК
 
+	// КОНСТРУКТОР
+	public Sneakers(String type, String name, Float cost, String name_, String country) {
+		this.type = type;
+		this.name = name;
+		this.cost = cost;
+		producer = new Producer(name_, country);
+		
+	}
+	// НИЖЕ ИДУТ ГЕТЕРЫ И СЕТЕРЫ ДЛЯ ВСЕХ ПОЛЕЙ
 	public void setProducer(Producer producer) {
 		this.producer = producer;
 	}
@@ -31,13 +39,6 @@ public class Sneakers {
 		this.cost = cost;
 	}
 
-	public Sneakers(String type,String name, Float cost,String name_,String country) {
-		this.type=type;
-		this.name = name;
-		this.cost = cost;
-		producer= new Producer(name_, country);
-
-	}
 
 	public void setType(String type) {
 		this.type = type;
@@ -50,10 +51,12 @@ public class Sneakers {
 	public String get_name() {
 		return producer.get_name();
 	}
+
 	public String get_country() {
 		return producer.get_country();
 	}
-	private  class Producer {
+
+	private class Producer {
 		private String _name;
 		private String _country;
 
@@ -78,12 +81,6 @@ public class Sneakers {
 			this._country = _country;
 		}
 
-
 	}
 
 }
-
-
-  
- 
-

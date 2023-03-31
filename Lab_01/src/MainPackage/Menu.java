@@ -6,6 +6,7 @@ class Menu {
 	// TODO Auto-generated constructor stub
 
 	public static void main(String[] args) {
+		// Создаем массив типа Sneakers, который может хранить в себе все наследуемые типы
 		Sneakers[] krosovki = { new Joggers("Joggers", "Подкрадули", 150, "БЕЛобувь", "Беларусь"),
 				new Basketballs("Basketballs", "Nike Talant", 170, "Nike", "Китай"),
 				new Joggers("Joggers", "ПушечкаКросовочкиОтВанечки", 120, "Gara Corp.", "Беларусь"),
@@ -15,18 +16,45 @@ class Menu {
 				new Footballs("Footballs", "Abibas Barbos", 80, "KILOVATA", "Грузия"),
 				new Basketballs("Basketballs", "BasketTrow", 100, "Mension", "США"),
 				new Footballs("Footballs", "Бутсы ГараБолы", 330, "Gara Corp.", "Беларусь"),
-				new Joggers("Joggers", "Туфли лакированные", 200, "Ашот и Друзья", "Грузия"), 
-				
+				new Joggers("Joggers", "Туфли лакированные", 200, "Ашот и Друзья", "Грузия"),
+
 		};
-				
-		System.out.println("Количество производителей:");
-		Menu.KolichestvoProizvoditeley(krosovki);
-		System.out.println("Средняя стоимость обуви по каждому производителю:");
-		Menu.SrednuyaStoimostObyviPoKajdomyProizvoditelu(krosovki);
-		System.out.println("Средняя стоимость обуви по каждому типу:");
-		Menu.SrednuyaStoimostObyviPoKajdomyType(krosovki);
+		ClassRepository sneakersRepository = new ClassRepository();
+		// Создаем объекты для добавления в список
+		ValleyBalls sneakers1 = new ValleyBalls("Valleyballs", "Туфли лакированные", 200, "Ашот и Друзья", "Грузия");
+		Footballs football1 = new Footballs("Footballs", "Подкрадули x Гаращук", 300, "Gara Corp.", "Беларусь");
+		Basketballs basketball1 = new Basketballs("Basketballs", "Nike Talant", 170, "Nike", "Китай");
+
+		// Добавляем несколько классов наследуемых от Sneakers в список
+		sneakersRepository.AddNewKrosovki(sneakers1);
+		sneakersRepository.AddNewKrosovki(football1);
+		sneakersRepository.AddNewKrosovki(basketball1);
+		System.out.println("==========================");
+		ArrayList<Sneakers> sneakersCollection = sneakersRepository.getSneakersCollection();
+		for (Sneakers sneakers : sneakersCollection) {
+			System.out.println(sneakers);
+		}
+		System.out.println("==========================");
+		// Заменяем определенный элемент списка новым 
+		Footballs sneakers2 = new Footballs("Footballs", "Abibas Barbos", 80, "KILOVATA", "Грузия");
+		sneakersRepository.ChangeKrosovki(0, sneakers2);
+		sneakersCollection = sneakersRepository.getSneakersCollection();
+		for (Sneakers sneakers : sneakersCollection) {
+			System.out.println(sneakers);
+		}
+		System.out.println("==========================");
+
+		/*
+		 * System.out.println("Количество производителей:");
+		 * Menu.KolichestvoProizvoditeley(krosovki);
+		 * System.out.println("Средняя стоимость обуви по каждому производителю:");
+		 * Menu.SrednuyaStoimostObyviPoKajdomyProizvoditelu(krosovki);
+		 * System.out.println("Средняя стоимость обуви по каждому типу:");
+		 * Menu.SrednuyaStoimostObyviPoKajdomyType(krosovki);
+		 */
 	}
 
+	// Метод считающий количество производителей
 	public static void KolichestvoProizvoditeley(Sneakers[] krosovki) {
 		int counter = 0;
 		for (int i = 0; i < krosovki.length; i++) {
@@ -42,6 +70,7 @@ class Menu {
 		System.out.println(counter);
 	}
 
+	// Метод выводящий среднюю стоимость обуви по каждому производителю
 	public static void SrednuyaStoimostObyviPoKajdomyProizvoditelu(Sneakers[] krosovki) {
 		ArrayList<String> set = new ArrayList<>();
 		ArrayList<Float> numbers = new ArrayList<>();
@@ -76,7 +105,7 @@ class Menu {
 			System.out.println(numbers.get(i));
 		}
 	}
-
+	// Выводит среднюю стоимость обуви по каждому типу обуви
 	public static void SrednuyaStoimostObyviPoKajdomyType(Sneakers[] krosovki) {
 		ArrayList<String> set = new ArrayList<>();
 		ArrayList<Float> numbers = new ArrayList<>();
