@@ -71,7 +71,7 @@ class Menu {
 	}
 
 	// Метод выводящий среднюю стоимость обуви по каждому производителю
-	public static void SrednuyaStoimostObyviPoKajdomyProizvoditelu(Sneakers[] krosovki) {
+	public static void AverageCostOfShoesForEachManufacturer(Sneakers[] krosovki) {
 		ArrayList<String> set = new ArrayList<>();
 		ArrayList<Float> numbers = new ArrayList<>();
 		for (int i = 0; i < krosovki.length; i++) {
@@ -106,9 +106,9 @@ class Menu {
 		}
 	}
 	// Выводит среднюю стоимость обуви по каждому типу обуви
-	public static void SrednuyaStoimostObyviPoKajdomyType(Sneakers[] krosovki) {
+	public static void TheAverageCostOfShoesForEachTypeOfShoe(Sneakers[] krosovki) {
 		ArrayList<String> set = new ArrayList<>();
-		ArrayList<Float> numbers = new ArrayList<>();
+		ArrayList<Float>  numbers = new ArrayList<>();
 		for (int i = 0; i < krosovki.length; i++) {
 			set.add(krosovki[i].getType());
 			float sum;
